@@ -49,7 +49,7 @@ export const createWhiteboardTemplate = async (
         },
         tags: ['Tag 1', 'Tag 2'],
         whiteboard: {
-          profileData: {
+          profile: {
             displayName: 'Whiteboard Template',
           },
           content,

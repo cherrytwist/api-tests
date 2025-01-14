@@ -51,7 +51,7 @@ export const createWhiteboardOnCallout = async (
           whiteboard: {
             content:
               '{"type":"excalidraw","version":2,"source":"https://excalidraw.com","elements":[],"appState":{"gridSize":null,"viewBackgroundColor":"#ffffff"}}',
-            profileData: {
+            profile: {
               displayName: '111',
             },
           },
