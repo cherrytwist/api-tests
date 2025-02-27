@@ -49,8 +49,6 @@ export const subspaceVariablesData = (
             description: 'dest description' + uniqueId,
           },
         ],
-        why: 'test vision' + uniqueId,
-        who: 'test who' + uniqueId,
       },
     },
     collaborationData: {

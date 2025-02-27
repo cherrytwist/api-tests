@@ -17,7 +17,7 @@ import { changePreferenceUser } from '@functional-api/contributor-management/use
 import { TestScenarioFactory } from '@src/scenario/TestScenarioFactory';
 import { OrganizationWithSpaceModel } from '@src/scenario/models/OrganizationWithSpaceModel';
 import { TestScenarioConfig } from '@src/scenario/config/test-scenario-config';
-import { getUserData } from '@functional-api/contributor-management/user/user.request.params';
+import { getUserByNameId } from '@functional-api/contributor-management/user/user.request.params';
 
 let preferencesConfig: any[] = [];
 
@@ -112,8 +112,9 @@ afterAll(async () => {
 
 describe('Notifications - applications', () => {
   beforeAll(async () => {
-    const notificationsUserId = await getUserData('notifications@alkem.io');
-    const notificationsAdminUserId = notificationsUserId?.data?.user?.id ?? '';
+    const notificationsUserId = await getUserByNameId('notifications-admin');
+    const notificationsAdminUserId =
+      notificationsUserId.data?.lookupByName.user ?? '';
     await changePreferenceUser(
       notificationsAdminUserId,
       PreferenceType.NotificationApplicationSubmitted,
