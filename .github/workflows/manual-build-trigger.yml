@@ -7,13 +7,13 @@ jobs:
   cleanup-db:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout GitHub Action'
+      - name: "Checkout GitHub Action"
         uses: actions/checkout@v4.1.7
 
       - name: Install Kubectl
         uses: azure/setup-kubectl@v4.0.0
         with:
-          version: 'v1.29.6' # Ensure this matches the version used in your cluster
+          version: "v1.29.6" # Ensure this matches the version used in your cluster
 
       - name: Set up Kubeconfig for Hetzner k3s
         run: |
@@ -44,7 +44,7 @@ jobs:
       - name: Install Kubectl
         uses: azure/setup-kubectl@v4.0.0
         with:
-          version: 'v1.29.6' # Ensure this matches the version used in your cluster
+          version: "v1.29.6" # Ensure this matches the version used in your cluster
 
       - name: Set up Kubeconfig for Hetzner k3s
         run: |
@@ -58,7 +58,7 @@ jobs:
           MIGRATION_JOB_NAME="server-migration-job-${{ github.run_id }}"
 
           # Create the job from the cronjob
-          kubectl create job --from=cronjob/alkemio-server-migration $MIGRATION_JOB_NAME
+          kubectl create job --from=cronjob/server-migration $MIGRATION_JOB_NAME
 
           # Wait for the migration job to complete
           kubectl wait --for=condition=complete job/$MIGRATION_JOB_NAME --timeout=600s
